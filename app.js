@@ -52,7 +52,9 @@ app.get("/states/", async (request, response) => {
     state
     ;`;
   const statesArray = await db.all(selectStatesQuery);
-  response.send(convertDbObjectTOResponseObject(statesArray));
+  response.send(
+    statesArray.map((eachArray) => convertDbObjectTOResponseObject(eachArray))
+  );
 });
 
 // API 2
