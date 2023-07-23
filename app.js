@@ -52,7 +52,7 @@ app.get("/states/", async (request, response) => {
     state
     ;`;
   const statesArray = await db.all(selectStatesQuery);
-  response.send(statesArray);
+  response.send(convertDbObjectTOResponseObject(statesArray));
 });
 
 // API 2
@@ -64,7 +64,7 @@ app.get("/states/:stateId/", async (request, response) => {
   state
   where state_id = ${stateId};`;
   const stateArray = await db.get(selectStateQuery);
-  response.send(stateArray);
+  response.send(convertDbObjectTOResponseObject(stateArray));
 });
 
 // API 3
@@ -178,3 +178,4 @@ app.get("/districts/:districtId/details/", async (request, response) => {
   const getStateNameQueryResponse = await db.get(getStateNameQuery);
   response.send(getStateNameQueryResponse);
 });
+module.exports = app;

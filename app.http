@@ -48,4 +48,4 @@ GET http://localhost:3000/states/4/stats/
 
 ###
 // API 8
-GET http://localhost:3000/districts/:districtId/details/
+GET http://localhost:3000/districts/10/details/
